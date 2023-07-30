@@ -10,9 +10,7 @@ jobs:
     # See: https://circleci.com/docs/configuration-reference/#executor-job
     docker:
       - image: aws/aws-cli
-        aws_auth:
-          aws_access_key_id: AKIATJZWQNBXWY7AHENF
-          aws_secret_access_key: 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
+
 
           
 
