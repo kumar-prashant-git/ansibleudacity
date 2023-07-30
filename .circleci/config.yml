@@ -52,10 +52,7 @@ jobs:
       # Fail the job intentionally to simulate an error.
       # Uncomment the line below if you want to fail the current step
       # - run: return 1
-  workflows:
-  # Name the workflow "welcome"
-  my_workflow:
-    # Run the welcome/run job in its own container
+workflows:
+  my-workflow:
     jobs:
-
       - create_infrastructure
