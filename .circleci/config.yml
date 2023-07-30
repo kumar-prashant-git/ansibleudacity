@@ -1,10 +1,30 @@
+
+
+
 # Use the latest 2.1 version of CircleCI pipeline process engine.
 # See: https://circleci.com/docs/configuration-reference
 version: 2.1
-
+orbs:
+  aws-cli: circleci/aws-cli@3.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
+
+  configure_role_arn:
+    executor: aws-cli/default
+    steps:
+      - checkout
+      - aws-cli/setup:
+          profile_name: default
+      - aws-cli/role_arn_setup:
+          profile_name: ansiblecircleci
+          role_arn: arn:aws:iam::227210717295:user/ansiblecirclci
+          source_profile: default
+      - run: >-
+          aws sts assume-role --role_arn
+          "arn:aws:iam::227210717295:user/ansiblecirclci" --role_session_name
+          AWSCLI-Session
+          
   create_infrastructure:
     # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/configuration-reference/#executor-job
@@ -31,4 +51,5 @@ jobs:
 workflows:
   my-workflow:
     jobs:
+      - configure_role_arn
       - create_infrastructure
