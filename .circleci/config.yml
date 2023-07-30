@@ -13,7 +13,7 @@ jobs:
         aws_auth:
           aws_access_key_id: AKIATJZWQNBXWY7AHENF
           aws_secret_access_key: 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
-          aws_default_region: us-east-1
+          default_region_name: us-east-1
 
     # Add steps to the job
     # See: https://circleci.com/docs/configuration-reference/#steps
