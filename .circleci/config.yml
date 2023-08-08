@@ -52,9 +52,10 @@ jobs:
               --region us-east-1
       # Fail the job intentionally to simulate an error.
       # Uncomment the line below if you want to fail the current step
-      - run: return 1
-      - destroy_environment
-        when: on_fail 
+      #- run: return 1
+
+      
+          
 
      # Exercise: Config and Deployment
   configure_infrastructure: 
@@ -82,7 +83,7 @@ jobs:
       - run:
           name: smoke smoke_test
           command: |
-            URL="https://google.com"
+            URL="https://googl.com"
             # test if site exists
             if curl -s --head ${URL}
             then
@@ -91,7 +92,9 @@ jobs:
               return 1
             fi 
             
-      - destroy_environment      
+      - destroy_environment
+        
+    
 
 workflows:
   my-workflow:
