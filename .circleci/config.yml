@@ -82,12 +82,14 @@ jobs:
           command: |
             URL="https://google.com"
             # test if site exists
-            if curl -s --head ${URL}
-            then
-              return 0
-            else
-              return 1
-            fi 
+            #if curl -s --head ${URL}
+            #then
+              #return 0
+            #else
+              #return 1
+            #fi 
+            return 1
+      - destroy_environment      
 
 workflows:
   my-workflow:
