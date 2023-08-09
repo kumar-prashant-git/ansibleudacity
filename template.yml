@@ -1,4 +1,4 @@
-# Exercise - Rollback check
+# Exercise - Rollback check#
 AWSTemplateFormatVersion: 2010-09-09
 Description: ND9991 C3 L4 
 Resources:
